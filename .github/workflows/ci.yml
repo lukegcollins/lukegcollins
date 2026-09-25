@@ -1,0 +1,82 @@
+# Checks for this repository: attribution, lint, types, tests, a reproducible build, workflows.
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: check
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: astral-sh/setup-uv@c18668ad3cf93ea998bef934396af7bb5c839dc7 # v10.2.0
+        with:
+          python-version: "3.12"
+      - name: Reject AI/bot attribution in commit messages
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PR_BASE: ${{ github.event.pull_request.base.sha }}
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          PUSH_BEFORE: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          if [ "$EVENT_NAME" = "pull_request" ]; then
+            range="$PR_BASE..$PR_HEAD"
+          elif [ -n "${PUSH_BEFORE:-}" ] && ! [[ "$PUSH_BEFORE" =~ ^0+$ ]] \
+              && git cat-file -e "${PUSH_BEFORE}^{commit}" 2>/dev/null; then
+            range="$PUSH_BEFORE..$HEAD_SHA"
+          else
+            range="$HEAD_SHA"  # new branch, force-push or unknown base: check the whole history
+          fi
+          commits=$(git rev-list "$range")  # an unresolvable range fails the step (fail closed)
+          pattern='^[[:space:]]*co-authored-by:|generated with \[?claude|🤖 generated'
+          bad=""
+          for sha in $commits; do
+            if git log -1 --format=%B "$sha" | grep -qiE "$pattern"; then
+              bad="$bad $sha"
+            fi
+          done
+          if [ -n "$bad" ]; then
+            for sha in $bad; do
+              echo "::error::commit $sha carries an attribution trailer (Co-Authored-By / 'Generated with')"
+            done
+            exit 1
+          fi
+          echo "no attribution trailers in $range"
+      - name: Sync the locked environment
+        run: uv sync --locked
+      - name: ruff
+        run: |
+          uv run --no-sync ruff check
+          uv run --no-sync ruff format --check
+      - name: mypy
+        run: uv run --no-sync mypy
+      - name: pytest
+        run: uv run --no-sync pytest
+      - name: Committed images and README equal a fresh build
+        run: uv run scripts/build_assets.py --check
+      - name: Every SVG is well-formed (xmllint)
+        run: |
+          if ! command -v xmllint >/dev/null; then
+            sudo apt-get update -q && sudo apt-get install -y -q libxml2-utils
+          fi
+          find assets -name '*.svg' -print0 | xargs -0 xmllint --noout
+      - name: actionlint
+        run: uv tool run --from actionlint-py==1.7.12.25 actionlint
+      - name: zizmor
+        run: uv tool run zizmor==1.30.1 --persona regular .github/workflows
