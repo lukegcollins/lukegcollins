@@ -2,6 +2,7 @@
  "as_of": "2026-09-25",
  "contributions": {
   "total": 19,
+  "private_counted": 0,
   "days": [
    [
     "2025-09-21",
@@ -1487,6 +1488,9 @@
  },
  "languages": {
   "scope": "owned + org repos · private included",
+  "orgs": [
+   "dynamis-group"
+  ],
   "excluded": [
    "Jupyter Notebook"
   ],

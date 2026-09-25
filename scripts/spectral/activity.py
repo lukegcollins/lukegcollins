@@ -109,7 +109,8 @@ def skyline(tokens: Tokens, theme: Theme, stats: Stats, ledger: Ledger, asset: s
     if stats.ready and stats.total is not None:
         desc = (
             f"Isometric skyline of {stats.total:,} contributions over the last 12 months, "
-            "one column per day, taller for busier days. Private work is included as counts."
+            "one column per day, taller for busier days."
+            + (" Private work is included as counts." if stats.includes_private else "")
         )
     else:
         desc = "Contribution skyline, waiting for the first data refresh."
@@ -131,7 +132,7 @@ def contributions_card(
         frame(theme, CARD_W, CARD_H),
         c.text(f"12 months to {stats.as_of}" if stats.as_of else "last 12 months", 24, 56, "e"),
         c.text(number, 24, 106, "n"),
-        c.text("contributions, private work included", 24, 138, "d"),
+        c.text(stats.contribution_label, 24, 138, "d"),
     ]
     weekly = [sum(count for _, count in week) for week in stats.weeks()] or [0] * 53
     top = max(weekly) or 1
@@ -170,8 +171,7 @@ def contributions_card(
         + el("g", {"fill": "url(#w)", "opacity": "0.9"}, bars)
     )
     desc = (
-        f"{number} contributions in the last 12 months, including private work, with a "
-        "bar per week."
+        f"{number} {stats.contribution_label} in the last 12 months, with a bar per week."
         if stats.ready
         else "Contribution count, waiting for the first data refresh."
     )
@@ -242,7 +242,7 @@ def languages_card(tokens: Tokens, theme: Theme, stats: Stats, ledger: Ledger, a
                 )
             )
             parts.append(c.text(name, cx + 18, cy, "l"))
-            parts.append(c.text(f"{share * 100:.1f}%", cx + 172, cy, "p", anchor="end"))
+            parts.append(c.text(f"{share * 100:.1f}%", cx + 168, cy, "p", anchor="end"))
     parts.append(c.text(stats.language_scope or "owned repos · private included", 24, 200, "e"))
     listing = ", ".join(f"{name} {share * 100:.1f}%" for name, share in shares)
     desc = (

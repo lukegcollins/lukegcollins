@@ -63,6 +63,11 @@ def main() -> int:
                 org=os.environ.get("METRICS_ORG", "dynamis-group"),
             )
             stats, forbidden = collected.stats, collected.forbidden
+            if not stats.includes_private:
+                print(
+                    "::notice::GitHub reported no private contributions. Turn on 'Private "
+                    "contributions' under Contribution settings on the profile to count them."
+                )
         except (OSError, ValueError, KeyError, github_stats.GraphQLError) as exc:
             print(f"::error::GitHub stats failed ({exc}); keeping the last numbers")
             stats, status = old_stats, 3

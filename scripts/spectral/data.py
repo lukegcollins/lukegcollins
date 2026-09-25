@@ -21,10 +21,25 @@ PUBLICATIONS = ROOT / "data" / "publications.json"
 class Stats:
     as_of: str | None = None
     total: int | None = None
+    private_counted: int = 0  # private contributions GitHub reports as counts only
     days: tuple[tuple[str, int], ...] = ()
     languages: tuple[tuple[str, int], ...] = ()
     language_scope: str = ""
+    language_orgs: tuple[str, ...] = ()
     excluded_languages: tuple[str, ...] = ()
+
+    @property
+    def includes_private(self) -> bool:
+        """True only when GitHub counted private work (Luke's "Private contributions" setting)."""
+        return self.private_counted > 0
+
+    @property
+    def contribution_label(self) -> str:
+        return (
+            "contributions, private work included"
+            if self.includes_private
+            else "public contributions"
+        )
 
     @property
     def ready(self) -> bool:
@@ -76,11 +91,13 @@ def load_stats(path: Path = STATS) -> Stats:
     return Stats(
         as_of=raw.get("as_of"),
         total=raw.get("contributions", {}).get("total"),
+        private_counted=int(raw.get("contributions", {}).get("private_counted") or 0),
         days=tuple((str(d), int(c)) for d, c in raw.get("contributions", {}).get("days", [])),
         languages=tuple(
             (str(n), int(b)) for n, b in raw.get("languages", {}).get("bytes", {}).items()
         ),
         language_scope=raw.get("languages", {}).get("scope", ""),
+        language_orgs=tuple(raw.get("languages", {}).get("orgs", [])),
         excluded_languages=tuple(raw.get("languages", {}).get("excluded", [])),
     )
 
@@ -88,9 +105,14 @@ def load_stats(path: Path = STATS) -> Stats:
 def dump_stats(stats: Stats) -> str:
     payload = {
         "as_of": stats.as_of,
-        "contributions": {"total": stats.total, "days": [[d, c] for d, c in stats.days]},
+        "contributions": {
+            "total": stats.total,
+            "private_counted": stats.private_counted,
+            "days": [[d, c] for d, c in stats.days],
+        },
         "languages": {
             "scope": stats.language_scope,
+            "orgs": list(stats.language_orgs),
             "excluded": list(stats.excluded_languages),
             "bytes": dict(sorted(stats.languages, key=lambda item: (-item[1], item[0]))),
         },

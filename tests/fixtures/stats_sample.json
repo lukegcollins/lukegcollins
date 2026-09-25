@@ -1487,7 +1487,8 @@
     "2026-09-26",
     0
    ]
-  ]
+  ],
+  "private_counted": 640
  },
  "languages": {
   "scope": "owned repos \u00b7 private included",
@@ -1502,6 +1503,7 @@
    "Shell": 212345,
    "CSS": 180222,
    "HTML": 90111
-  }
+  },
+  "orgs": []
  }
 }

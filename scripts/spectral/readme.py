@@ -93,7 +93,7 @@ def activity_block(stats: Stats) -> str:
         + "\n\n<p>\n"
         + picture(
             "assets/activity/contributions",
-            "Contributions in the last 12 months, private work included.",
+            "Contributions in the last 12 months.",
             width=400,
         )
         + "\n"
@@ -105,14 +105,11 @@ def activity_block(stats: Stats) -> str:
     else:
         shares, _ = stats.language_shares(4)
         langs = ", ".join(f"{md_escape(name)} {share * 100:.1f}%" for name, share in shares)
-        left_out = (
-            f", {' and '.join(stats.excluded_languages)} left out"
-            if stats.excluded_languages
-            else ""
-        )
+        whose = "my own repositories" + "".join(f" and {org}'s" for org in stats.language_orgs)
+        notebooks = ", notebooks left out" if "Jupyter Notebook" in stats.excluded_languages else ""
         summary = (
-            f"{stats.total:,} contributions in the last 12 months, private work included. "
-            f"Top languages by bytes ({stats.language_scope}{left_out}): {langs}."
+            f"{stats.total:,} {stats.contribution_label} in the last 12 months. "
+            f"Top languages by bytes across {whose}, private ones included{notebooks}: {langs}."
         )
     return f"{images}\n\n{summary}"
 

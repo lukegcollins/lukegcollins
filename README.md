@@ -82,11 +82,11 @@ Earlier work: [WIFD](https://github.com/CSCRC-SCREED/WIFD), the Warwick Image Fo
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/activity/skyline-dark.svg"><img alt="Contribution skyline for the last 12 months: one column per day, taller for busier days." src="assets/activity/skyline-light.svg"></picture>
 
 <p>
-<picture><source media="(prefers-color-scheme: dark)" srcset="assets/activity/contributions-dark.svg"><img alt="Contributions in the last 12 months, private work included." src="assets/activity/contributions-light.svg" width="400"></picture>
+<picture><source media="(prefers-color-scheme: dark)" srcset="assets/activity/contributions-dark.svg"><img alt="Contributions in the last 12 months." src="assets/activity/contributions-light.svg" width="400"></picture>
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/activity/languages-dark.svg"><img alt="Top languages by bytes." src="assets/activity/languages-light.svg" width="400"></picture>
 </p>
 
-19 contributions in the last 12 months, private work included. Top languages by bytes (owned + org repos · private included, Jupyter Notebook left out): Python 46.4%, TeX 19.2%, TypeScript 15.5%, Java 6.2%.
+19 public contributions in the last 12 months. Top languages by bytes across my own repositories and dynamis-group's, private ones included, notebooks left out: Python 46.4%, TeX 19.2%, TypeScript 15.5%, Java 6.2%.
 <!-- ACTIVITY:END -->
 
 <p align="center"><samp>ORCID 0009-0002-7771-1081 · Australia · refreshed daily</samp></p>

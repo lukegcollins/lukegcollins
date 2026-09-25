@@ -110,3 +110,12 @@ def test_graphql_errors_surface() -> None:
 
     with pytest.raises((github_stats.GraphQLError, KeyError, TypeError)):
         github_stats.collect("t", post=broken)
+
+
+def test_private_work_is_only_claimed_when_github_counted_it() -> None:
+    collected = github_stats.collect("t", post=fake_post)
+    assert collected.stats.private_counted == 12
+    assert collected.stats.contribution_label == "contributions, private work included"
+    public_only = data.Stats(total=5, days=(("2026-01-01", 5),))
+    assert public_only.contribution_label == "public contributions"
+    assert "private" not in readme.activity_block(public_only).split("\n\n")[-1].split(".")[0]

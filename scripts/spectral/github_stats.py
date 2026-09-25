@@ -26,6 +26,7 @@ CALENDAR = """
 query {
   viewer {
     contributionsCollection {
+      restrictedContributionsCount
       contributionCalendar {
         totalContributions
         weeks { contributionDays { date contributionCount } }
@@ -109,14 +110,16 @@ def _pages(
     raise GraphQLError("pagination did not finish")
 
 
-def _calendar(data: Mapping[str, Any]) -> tuple[int, tuple[tuple[str, int], ...]]:
-    calendar = data["viewer"]["contributionsCollection"]["contributionCalendar"]
+def _calendar(data: Mapping[str, Any]) -> tuple[int, int, tuple[tuple[str, int], ...]]:
+    collection = data["viewer"]["contributionsCollection"]
+    calendar = collection["contributionCalendar"]
     days = sorted(
         (str(day["date"]), int(day["contributionCount"]))
         for week in calendar["weeks"]
         for day in week["contributionDays"]
     )
-    return int(calendar["totalContributions"]), tuple(days)
+    restricted = int(collection.get("restrictedContributionsCount") or 0)
+    return int(calendar["totalContributions"]), restricted, tuple(days)
 
 
 def aggregate(
@@ -124,9 +127,10 @@ def aggregate(
     repos: list[dict[str, Any]],
     *,
     scope: str,
+    orgs: tuple[str, ...] = (),
     excluded: tuple[str, ...] = EXCLUDED_LANGUAGES,
 ) -> Collected:
-    total, days = _calendar(calendar)
+    total, restricted, days = _calendar(calendar)
     sizes: dict[str, int] = {}
     forbidden: set[str] = set()
     for repo in repos:
@@ -140,9 +144,11 @@ def aggregate(
     stats = Stats(
         as_of=days[-1][0] if days else None,
         total=total,
+        private_counted=restricted,
         days=days,
         languages=tuple(sorted(sizes.items(), key=lambda item: (-item[1], item[0]))),
         language_scope=scope,
+        language_orgs=orgs,
         excluded_languages=tuple(sorted(excluded)),
     )
     return Collected(stats=stats, forbidden=frozenset(forbidden))
@@ -158,7 +164,8 @@ def collect(
     calendar = post(token, CALENDAR, {})
     repos = _pages(post, token, OWNED, {}, ("viewer", "repositories"))
     scope = "owned repos · private included"
+    orgs: tuple[str, ...] = ()
     if org_token:
         repos += _pages(post, org_token, ORG, {"org": org}, ("organization", "repositories"))
-        scope = "owned + org repos · private included"
-    return aggregate(calendar, repos, scope=scope)
+        scope, orgs = "owned + org repos · private included", (org,)
+    return aggregate(calendar, repos, scope=scope, orgs=orgs)
