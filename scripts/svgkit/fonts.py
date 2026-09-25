@@ -74,6 +74,7 @@ def _woff2(face: FontFace, chars: str) -> bytes:
     options.notdef_outline = True
     options.hinting = False
     options.desubroutinize = True
+    options.drop_tables = [*options.drop_tables, "meta"]  # no rendering role in a subset
     subsetter = subset.Subsetter(options)
     subsetter.populate(text=chars)
     subsetter.subset(font)
