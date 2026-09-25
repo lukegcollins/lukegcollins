@@ -1,0 +1,26 @@
+{
+ "works": [
+  {
+   "title": "Example paper B",
+   "year": "2025",
+   "venue": "Proceedings of the Example Conference on Media Forensics",
+   "doi": "10.1234/example.2",
+   "code": "https://github.com/example/example-b",
+   "kind": "conference-paper"
+  },
+  {
+   "title": "Example paper C: costs under $5 and *starred* terms",
+   "year": "2025",
+   "url": "https://arxiv.org/abs/2501.00001",
+   "kind": "preprint"
+  },
+  {
+   "title": "Example paper A",
+   "year": "2024",
+   "venue": "Example Journal of Forensics",
+   "doi": "10.1234/example.1",
+   "url": "https://doi.org/10.1234/example.1",
+   "kind": "journal-article"
+  }
+ ]
+}

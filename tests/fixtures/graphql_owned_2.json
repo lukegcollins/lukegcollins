@@ -1,0 +1,33 @@
+{
+ "viewer": {
+  "repositories": {
+   "pageInfo": {
+    "hasNextPage": false,
+    "endCursor": null
+   },
+   "nodes": [
+    {
+     "name": "hiddenmethodnet",
+     "nameWithOwner": "example-user/hiddenmethodnet",
+     "isPrivate": true,
+     "languages": {
+      "edges": [
+       {
+        "size": 7000,
+        "node": {
+         "name": "Python"
+        }
+       },
+       {
+        "size": 900000,
+        "node": {
+         "name": "Jupyter Notebook"
+        }
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+}

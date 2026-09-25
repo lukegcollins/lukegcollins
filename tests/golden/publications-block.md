@@ -1,0 +1,3 @@
+- [Example paper B](https://doi.org/10.1234/example.2) · *Proceedings of the Example Conference on Media Forensics* · 2025 · [code](https://github.com/example/example-b)
+- [Example paper C: costs under \$5 and \*starred\* terms](https://arxiv.org/abs/2501.00001) · 2025
+- [Example paper A](https://doi.org/10.1234/example.1) · *Example Journal of Forensics* · 2024

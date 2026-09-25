@@ -1,0 +1,2 @@
+<a href="https://github.com/dfwb-research"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/dfwb-dark.svg"><img alt="DFWB Research. Open, reproducible tooling for deepfake detection research." src="assets/cards/dfwb-light.svg" width="400"></picture></a>
+<a href="https://github.com/dynamis-group"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/dynamis-dark.svg"><img alt="Dynamis Group. Software engineering, systems advice and a small R&D lab, in Melbourne." src="assets/cards/dynamis-light.svg" width="400"></picture></a>

@@ -1,0 +1,54 @@
+{
+ "viewer": {
+  "repositories": {
+   "pageInfo": {
+    "hasNextPage": true,
+    "endCursor": "c1"
+   },
+   "nodes": [
+    {
+     "name": "public-tool",
+     "nameWithOwner": "example-user/public-tool",
+     "isPrivate": false,
+     "languages": {
+      "edges": [
+       {
+        "size": 5000,
+        "node": {
+         "name": "Python"
+        }
+       },
+       {
+        "size": 300,
+        "node": {
+         "name": "Shell"
+        }
+       }
+      ]
+     }
+    },
+    {
+     "name": "secret-thesis-draft",
+     "nameWithOwner": "example-user/secret-thesis-draft",
+     "isPrivate": true,
+     "languages": {
+      "edges": [
+       {
+        "size": 9000,
+        "node": {
+         "name": "TeX"
+        }
+       },
+       {
+        "size": 1200,
+        "node": {
+         "name": "Python"
+        }
+       }
+      ]
+     }
+    }
+   ]
+  }
+ }
+}

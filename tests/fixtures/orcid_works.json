@@ -1,0 +1,71 @@
+{
+  "path": "/0009-0002-7771-1081/works",
+  "group": [
+    {
+      "external-ids": {"external-id": [{"external-id-type": "doi", "external-id-value": "10.1234/example.1", "external-id-relationship": "self"}]},
+      "work-summary": [
+        {
+          "put-code": 1001,
+          "title": {"title": {"value": "Example paper A: an older duplicate record"}},
+          "external-ids": {"external-id": [{"external-id-type": "doi", "external-id-value": "10.1234/example.1", "external-id-relationship": "self"}]},
+          "url": null,
+          "type": "journal-article",
+          "publication-date": {"year": {"value": "2024"}, "month": {"value": "03"}, "day": null},
+          "journal-title": {"value": "Example Journal of Forensics"},
+          "display-index": "0"
+        },
+        {
+          "put-code": 1002,
+          "title": {"title": {"value": "Example paper A"}},
+          "external-ids": {"external-id": [{"external-id-type": "doi", "external-id-value": "https://doi.org/10.1234/EXAMPLE.1", "external-id-relationship": "self"}]},
+          "url": {"value": "https://doi.org/10.1234/example.1"},
+          "type": "journal-article",
+          "publication-date": {"year": {"value": "2024"}, "month": {"value": "03"}, "day": null},
+          "journal-title": {"value": "Example Journal of Forensics"},
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "external-ids": {"external-id": [{"external-id-type": "doi", "external-id-value": "10.1234/example.2", "external-id-relationship": "self"}]},
+      "work-summary": [
+        {
+          "put-code": 2001,
+          "title": {"title": {"value": "Example paper B"}},
+          "external-ids": {"external-id": [{"external-id-type": "doi", "external-id-value": "10.1234/example.2", "external-id-relationship": "self"}]},
+          "url": {"value": "https://github.com/example/example-b"},
+          "type": "conference-paper",
+          "publication-date": {"year": {"value": "2025"}, "month": {"value": "11"}, "day": {"value": "02"}},
+          "journal-title": null,
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "external-ids": {"external-id": [{"external-id-type": "arxiv", "external-id-value": "2501.00001", "external-id-relationship": "self"}]},
+      "work-summary": [
+        {
+          "put-code": 3001,
+          "title": {"title": {"value": "Example paper C: costs under $5 and *starred* terms"}},
+          "external-ids": {"external-id": [{"external-id-type": "arxiv", "external-id-value": "2501.00001", "external-id-relationship": "self"}]},
+          "url": {"value": "https://arxiv.org/abs/2501.00001"},
+          "type": "preprint",
+          "publication-date": {"year": {"value": "2025"}, "month": null, "day": null},
+          "journal-title": null,
+          "display-index": "1"
+        }
+      ]
+    },
+    {
+      "external-ids": {"external-id": []},
+      "work-summary": [
+        {
+          "put-code": 4001,
+          "title": {"title": {"value": ""}},
+          "type": "other",
+          "display-index": "1"
+        }
+      ]
+    }
+  ]
+}
