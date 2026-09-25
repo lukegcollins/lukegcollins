@@ -16,12 +16,12 @@ ASSETS = ROOT / "assets"
 __all__ = ["ASSETS", "FEATURES", "LINKS", "README", "ROOT", "TOKENS", "build_all", "stale", "write"]
 
 LINKS = (
+    cards.Link("linkedin", "LinkedIn", "https://www.linkedin.com/in/lukegcollins/"),
+    cards.Link("email", "Email", "mailto:luke.collins@research.deakin.edu.au"),
     cards.Link("orcid", "ORCID", "https://orcid.org/0009-0002-7771-1081"),
     cards.Link(
         "scholar", "Google Scholar", "https://scholar.google.com/citations?user=KIZQVFAAAAAJ&hl=en"
     ),
-    cards.Link("linkedin", "LinkedIn", "https://www.linkedin.com/in/lukegcollins/"),
-    cards.Link("email", "Email", "mailto:luke.collins@research.deakin.edu.au"),
     cards.Link("dynamis", "dynamisgroup.com.au", "https://dynamisgroup.com.au/"),
 )
 

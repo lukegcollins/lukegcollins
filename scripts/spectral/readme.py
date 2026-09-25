@@ -59,10 +59,7 @@ def stack_block() -> str:
 
 def publications_block(pubs: Publications) -> str:
     if not pubs.works:
-        return (
-            "Papers will be listed here as they're published. Until then, see "
-            f"[ORCID]({ORCID}) and [Google Scholar]({SCHOLAR})."
-        )
+        return f"See [ORCID]({ORCID}) and [Google Scholar]({SCHOLAR})."
     lines = []
     for work in pubs.works:
         title = md_escape(work.title)
