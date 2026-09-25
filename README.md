@@ -5,14 +5,14 @@
   <img alt="Luke Collins. Deepfake detection researcher who ships production systems. PhD candidate at Deakin University, Managing Director of Dynamis Group, lead maintainer of DFWB." src="assets/hero-light.svg">
 </picture>
 
-I'm a PhD candidate at Deakin University, working on deepfake detection. Outside the lab I run Dynamis Group, a Melbourne firm that builds software people rely on. DFWB Research is where the two meet: open tooling that makes detection results reproducible.
+Researcher, AI Engineer & Full-Stack Developer leveraging deep learning to solve complex problems in computer vision and biometrics. Outside of research, I run Dynamis Group, a Melbourne firm that provides digital infrastructure software people rely on.
 
 <p>
 <!-- LINKS:START -->
-<a href="https://orcid.org/0009-0002-7771-1081"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/links/orcid-dark.svg"><img alt="ORCID" src="assets/links/orcid-light.svg" height="32"></picture></a>
-<a href="https://scholar.google.com/citations?user=KIZQVFAAAAAJ&amp;hl=en"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/links/scholar-dark.svg"><img alt="Google Scholar" src="assets/links/scholar-light.svg" height="32"></picture></a>
 <a href="https://www.linkedin.com/in/lukegcollins/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/links/linkedin-dark.svg"><img alt="LinkedIn" src="assets/links/linkedin-light.svg" height="32"></picture></a>
 <a href="mailto:luke.collins@research.deakin.edu.au"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/links/email-dark.svg"><img alt="Email" src="assets/links/email-light.svg" height="32"></picture></a>
+<a href="https://orcid.org/0009-0002-7771-1081"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/links/orcid-dark.svg"><img alt="ORCID" src="assets/links/orcid-light.svg" height="32"></picture></a>
+<a href="https://scholar.google.com/citations?user=KIZQVFAAAAAJ&amp;hl=en"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/links/scholar-dark.svg"><img alt="Google Scholar" src="assets/links/scholar-light.svg" height="32"></picture></a>
 <a href="https://dynamisgroup.com.au/"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/links/dynamis-dark.svg"><img alt="dynamisgroup.com.au" src="assets/links/dynamis-light.svg" height="32"></picture></a>
 <!-- LINKS:END -->
 </p>
@@ -22,7 +22,7 @@ I'm a PhD candidate at Deakin University, working on deepfake detection. Outside
 My thesis looks at spatio-temporal deep learning: models that read how a face moves across frames, not only how a single frame looks. Generalisation is the hard part. A detector that aces the manipulations it trained on can fall apart on the next one, so much of my time goes into evaluation that's honest about that.
 
 <!-- PUBLICATIONS:START -->
-Papers will be listed here as they're published. Until then, see [ORCID](https://orcid.org/0009-0002-7771-1081) and [Google Scholar](https://scholar.google.com/citations?user=KIZQVFAAAAAJ&hl=en).
+See [ORCID](https://orcid.org/0009-0002-7771-1081) and [Google Scholar](https://scholar.google.com/citations?user=KIZQVFAAAAAJ&hl=en).
 <!-- PUBLICATIONS:END -->
 
 ## Featured work
@@ -33,8 +33,6 @@ Papers will be listed here as they're published. Until then, see [ORCID](https:/
 <a href="https://github.com/dynamis-group"><picture><source media="(prefers-color-scheme: dark)" srcset="assets/cards/dynamis-dark.svg"><img alt="Dynamis Group. Software engineering, systems advice and a small R&D lab, in Melbourne." src="assets/cards/dynamis-light.svg" width="400"></picture></a>
 <!-- FEATURES:END -->
 </p>
-
-Earlier work: [WIFD](https://github.com/CSCRC-SCREED/WIFD), the Warwick Image Forensics Dataset for camera-fingerprinting research, and [NASA Protocol Exploits](https://github.com/NASA-Protocol-Exploits), security research into space-communication protocols.
 
 ## Stack
 
