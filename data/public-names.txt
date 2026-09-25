@@ -1,0 +1,3 @@
+# Names the leak check should treat as public even though they match a private repository.
+# Use it when a private repository's name becomes public on purpose, for example a method
+# name after its paper is out. One name per line; everything after # is a comment.
