@@ -46,6 +46,12 @@ class Stats:
             else "public contributions"
         )
 
+    def contributions_phrase(self, number: str) -> str:
+        """The count as a phrase, with the private-work note after the time span."""
+        if self.includes_private:
+            return f"{number} contributions in the last 12 months, private work included"
+        return f"{number} public contributions in the last 12 months"
+
     @property
     def ready(self) -> bool:
         return self.total is not None and bool(self.days)

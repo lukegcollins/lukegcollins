@@ -106,7 +106,7 @@ def activity_block(stats: Stats) -> str:
         private = ", private ones included" if stats.languages_include_private else ""
         notebooks = ", notebooks left out" if "Jupyter Notebook" in stats.excluded_languages else ""
         summary = (
-            f"{stats.total:,} {stats.contribution_label} in the last 12 months. "
+            f"{stats.contributions_phrase(f'{stats.total:,}')}. "
             f"Top languages by bytes across {whose}{private}{notebooks}: {langs}."
         )
     return f"{images}\n\n{summary}"

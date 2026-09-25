@@ -171,7 +171,7 @@ def contributions_card(
         + el("g", {"fill": "url(#w)", "opacity": "0.9"}, bars)
     )
     desc = (
-        f"{number} {stats.contribution_label} in the last 12 months, with a bar per week."
+        f"{stats.contributions_phrase(number)}, with a bar per week."
         if stats.ready
         else "Contribution count, waiting for the first data refresh."
     )
