@@ -1,8 +1,8 @@
 {
- "as_of": "2026-09-25",
+ "as_of": "2026-09-26",
  "contributions": {
-  "total": 1481,
-  "private_counted": 1458,
+  "total": 1486,
+  "private_counted": 1461,
   "days": [
    [
     "2025-09-21",
@@ -1482,7 +1482,11 @@
    ],
    [
     "2026-09-25",
-    15
+    19
+   ],
+   [
+    "2026-09-26",
+    1
    ]
   ]
  },
@@ -1495,26 +1499,25 @@
    "Jupyter Notebook"
   ],
   "bytes": {
-   "Python": 15435479,
+   "Python": 15468760,
    "TeX": 6344450,
-   "TypeScript": 5121129,
+   "TypeScript": 4978426,
    "Java": 2060070,
-   "Shell": 1405721,
-   "Astro": 1186576,
+   "Shell": 1411391,
+   "Astro": 1099603,
    "BibTeX Style": 649887,
-   "JavaScript": 558844,
+   "JavaScript": 394690,
    "C++": 202715,
-   "CSS": 57603,
+   "CSS": 32946,
    "SCSS": 25747,
    "EJS": 24739,
    "Makefile": 23954,
    "HTML": 23539,
-   "Dockerfile": 11515,
+   "Dockerfile": 11032,
    "Cuda": 9874,
    "HCL": 7960,
    "PostScript": 7411,
    "Perl": 6160,
-   "Handlebars": 1399,
    "Mermaid": 1255,
    "PowerShell": 1084,
    "GLSL": 392,
