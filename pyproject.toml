@@ -1,0 +1,48 @@
+[project]
+name = "lukegcollins-profile"
+version = "1.0.0"
+description = "Generators for the lukegcollins GitHub profile (Spectral identity)."
+requires-python = ">=3.12"
+# Keep in step with the PEP 723 blocks in scripts/*.py (tests/test_meta.py checks this).
+dependencies = [
+  "brotli==1.2.0",
+  "fonttools[woff]==4.66.0",
+  "uharfbuzz==0.56.2",
+]
+
+[dependency-groups]
+dev = [
+  "mypy==2.3.1",
+  "pytest==9.1.1",
+  "ruff==0.16.9",
+]
+
+[tool.uv]
+package = false
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "UP", "B", "SIM", "RUF", "S", "PTH", "N"]
+ignore = ["S101", "RUF001", "RUF002", "RUF003"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/**" = ["S", "PTH"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+mypy_path = "scripts:tests"
+files = ["scripts", "tests"]
+explicit_package_bases = true
+
+[[tool.mypy.overrides]]
+module = ["fontTools.*", "uharfbuzz"]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+pythonpath = ["scripts"]
+testpaths = ["tests"]
+addopts = "-q"
