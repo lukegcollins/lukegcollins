@@ -106,10 +106,11 @@ def activity_block(stats: Stats) -> str:
         shares, _ = stats.language_shares(4)
         langs = ", ".join(f"{md_escape(name)} {share * 100:.1f}%" for name, share in shares)
         whose = "my own repositories" + "".join(f" and {org}'s" for org in stats.language_orgs)
+        private = ", private ones included" if stats.languages_include_private else ""
         notebooks = ", notebooks left out" if "Jupyter Notebook" in stats.excluded_languages else ""
         summary = (
             f"{stats.total:,} {stats.contribution_label} in the last 12 months. "
-            f"Top languages by bytes across {whose}, private ones included{notebooks}: {langs}."
+            f"Top languages by bytes across {whose}{private}{notebooks}: {langs}."
         )
     return f"{images}\n\n{summary}"
 

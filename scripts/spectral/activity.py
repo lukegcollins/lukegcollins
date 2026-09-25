@@ -243,7 +243,7 @@ def languages_card(tokens: Tokens, theme: Theme, stats: Stats, ledger: Ledger, a
             )
             parts.append(c.text(name, cx + 18, cy, "l"))
             parts.append(c.text(f"{share * 100:.1f}%", cx + 168, cy, "p", anchor="end"))
-    parts.append(c.text(stats.language_scope or "owned repos · private included", 24, 200, "e"))
+    parts.append(c.text(stats.language_scope or "owned repos", 24, 200, "e"))
     listing = ", ".join(f"{name} {share * 100:.1f}%" for name, share in shares)
     desc = (
         f"Top languages by bytes: {listing}."

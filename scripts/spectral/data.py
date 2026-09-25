@@ -34,6 +34,11 @@ class Stats:
         return self.private_counted > 0
 
     @property
+    def languages_include_private(self) -> bool:
+        """True only when a private repository added bytes to the language totals."""
+        return self.language_scope.endswith("private included")
+
+    @property
     def contribution_label(self) -> str:
         return (
             "contributions, private work included"

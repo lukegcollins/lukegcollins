@@ -133,21 +133,24 @@ def aggregate(
     total, restricted, days = _calendar(calendar)
     sizes: dict[str, int] = {}
     forbidden: set[str] = set()
+    private_counted = False  # the scope says "private included" only when it's true
     for repo in repos:
-        if repo.get("isPrivate"):
+        private = bool(repo.get("isPrivate"))
+        if private:
             forbidden.update(str(repo[k]) for k in ("name", "nameWithOwner") if repo.get(k))
         for edge in (repo.get("languages") or {}).get("edges") or []:
             name = str(edge["node"]["name"])
             if name in excluded:
                 continue
             sizes[name] = sizes.get(name, 0) + int(edge["size"])
+            private_counted = private_counted or private
     stats = Stats(
         as_of=days[-1][0] if days else None,
         total=total,
         private_counted=restricted,
         days=days,
         languages=tuple(sorted(sizes.items(), key=lambda item: (-item[1], item[0]))),
-        language_scope=scope,
+        language_scope=f"{scope} · private included" if private_counted else scope,
         language_orgs=orgs,
         excluded_languages=tuple(sorted(excluded)),
     )
@@ -163,9 +166,9 @@ def collect(
 ) -> Collected:
     calendar = post(token, CALENDAR, {})
     repos = _pages(post, token, OWNED, {}, ("viewer", "repositories"))
-    scope = "owned repos · private included"
+    scope = "owned repos"
     orgs: tuple[str, ...] = ()
     if org_token:
         repos += _pages(post, org_token, ORG, {"org": org}, ("organization", "repositories"))
-        scope, orgs = "owned + org repos · private included", (org,)
+        scope, orgs = "owned + org repos", (org,)
     return aggregate(calendar, repos, scope=scope, orgs=orgs)

@@ -63,6 +63,23 @@ def test_stats_are_aggregates_with_notebooks_left_out() -> None:
     assert_golden("stats.json", data.dump_stats(stats))
 
 
+def test_languages_claim_private_work_only_when_a_private_repo_counted() -> None:
+    repos = [
+        {
+            "name": "open-tool",
+            "isPrivate": False,
+            "languages": {"edges": [{"size": 10, "node": {"name": "Python"}}]},
+        },
+        # A private repository that adds no bytes adds no claim either.
+        {"name": "empty-private", "isPrivate": True, "languages": {"edges": []}},
+    ]
+    calendar = fixture("graphql_calendar.json")
+    stats = github_stats.aggregate(calendar, repos, scope="owned repos").stats
+    assert stats.language_scope == "owned repos"
+    assert not stats.languages_include_private
+    assert "private ones included" not in readme.activity_block(stats)
+
+
 def test_private_names_are_collected_but_never_written() -> None:
     collected = github_stats.collect("t", org_token="o", org="example-org", post=fake_post)
     assert collected.forbidden == {
