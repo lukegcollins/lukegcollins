@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-09",
+ "as_of": "2026-11-10",
  "contributions": {
   "total": 2240,
   "private_counted": 2213,
@@ -1467,6 +1467,10 @@
    [
     "2026-11-09",
     0
+   ],
+   [
+    "2026-11-10",
+    0
    ]
   ]
  },
@@ -1479,12 +1483,12 @@
    "Jupyter Notebook"
   ],
   "bytes": {
-   "Rust": 40436033,
-   "Python": 21181758,
+   "Rust": 40678429,
+   "Python": 21209047,
    "TypeScript": 18091112,
    "TeX": 7968710,
    "Java": 2060070,
-   "Shell": 1893231,
+   "Shell": 1917220,
    "Astro": 1288327,
    "JavaScript": 876283,
    "HTML": 770560,
@@ -1496,7 +1500,7 @@
    "C": 25232,
    "EJS": 24739,
    "Makefile": 23954,
-   "Dockerfile": 20867,
+   "Dockerfile": 21960,
    "HCL": 10694,
    "Cuda": 9874,
    "PostScript": 7411,
