@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-24",
+ "as_of": "2026-11-25",
  "contributions": {
   "total": 1925,
   "private_counted": 1873,
@@ -1471,6 +1471,10 @@
    [
     "2026-11-24",
     0
+   ],
+   [
+    "2026-11-25",
+    0
    ]
   ]
  },
@@ -1483,16 +1487,16 @@
    "Jupyter Notebook"
   ],
   "bytes": {
-   "Rust": 45453888,
-   "TypeScript": 29521758,
+   "Rust": 46872001,
+   "TypeScript": 30016449,
    "Python": 21933756,
    "TeX": 8018951,
    "Shell": 2583309,
    "Java": 2060070,
    "Astro": 1315160,
-   "JavaScript": 1208310,
-   "HTML": 774645,
-   "CSS": 681990,
+   "JavaScript": 1294901,
+   "HTML": 785604,
+   "CSS": 689030,
    "BibTeX Style": 679349,
    "C++": 207621,
    "Sieve": 93503,
