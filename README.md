@@ -84,7 +84,7 @@ See [ORCID](https://orcid.org/0009-0002-7771-1081) and [Google Scholar](https://
 <picture><source media="(prefers-color-scheme: dark)" srcset="assets/activity/languages-dark.svg"><img alt="Top languages by bytes." src="assets/activity/languages-light.svg" width="400"></picture>
 </p>
 
-1,925 contributions in the last 12 months, private work included. Top languages by bytes across my own repositories and dynamis-group's, private ones included, notebooks left out: Rust 40.2%, TypeScript 25.7%, Python 18.8%, TeX 6.9%.
+1,925 contributions in the last 12 months, private work included. Top languages by bytes across my own repositories and dynamis-group's, private ones included, notebooks left out: Rust 40.3%, TypeScript 26.4%, Python 17.0%, TeX 6.3%.
 <!-- ACTIVITY:END -->
 
 <p align="center"><samp>ORCID 0009-0002-7771-1081 · Australia · refreshed daily</samp></p>

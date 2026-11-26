@@ -1,5 +1,5 @@
 {
- "as_of": "2026-11-25",
+ "as_of": "2026-11-26",
  "contributions": {
   "total": 1925,
   "private_counted": 1873,
@@ -1475,6 +1475,10 @@
    [
     "2026-11-25",
     0
+   ],
+   [
+    "2026-11-26",
+    0
    ]
   ]
  },
@@ -1487,19 +1491,19 @@
    "Jupyter Notebook"
   ],
   "bytes": {
-   "Rust": 46872001,
-   "TypeScript": 30016449,
-   "Python": 21933756,
-   "TeX": 8018951,
-   "Shell": 2583309,
+   "Rust": 51572116,
+   "TypeScript": 33839827,
+   "Python": 21818729,
+   "TeX": 8028241,
+   "HTML": 3565034,
+   "Shell": 2625381,
    "Java": 2060070,
-   "Astro": 1315160,
-   "JavaScript": 1294901,
-   "HTML": 785604,
-   "CSS": 689030,
+   "JavaScript": 1371802,
+   "Astro": 1313010,
+   "CSS": 692506,
    "BibTeX Style": 679349,
    "C++": 207621,
-   "Sieve": 93503,
+   "Sieve": 94126,
    "Dockerfile": 26144,
    "SCSS": 25747,
    "C": 25232,
@@ -1510,7 +1514,6 @@
    "PostScript": 7411,
    "Perl": 6160,
    "Mermaid": 1255,
-   "PowerShell": 1084,
    "GLSL": 392,
    "Batchfile": 79
   }
